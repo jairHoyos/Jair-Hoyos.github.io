@@ -4,8 +4,7 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CaucaTours - Formulario</title>
@@ -17,7 +16,6 @@
     <script>
         let logoBase64 = null;
 
-        // Cargar el logo en base64 al inicio
         async function cargarLogo() {
             const response = await fetch('img/LogoTurismo.png');
             if (!response.ok) {
@@ -32,7 +30,6 @@
             reader.readAsDataURL(blob);
         }
 
-        // Llamar a la función para cargar el logo
         cargarLogo();
     </script>
 </head>
@@ -52,30 +49,46 @@
     </header>
 
     <main>
-        <h1>Formulario de Reserva:</h1>
-        <form id="reservaFormulario">
-            <div class="form-grupo">
-                <label for="nombre">Nombre Completo:</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-            <div class="form-grupo">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-grupo">
-                <label for="destino">Destino de Interés:</label>
-                <input type="text" id="destino" name="destino" required>
-            </div>
-            <div class="form-grupo">
-                <label for="fecha">Fecha de Viaje:</label>
-                <input type="date" id="fecha" name="fecha" required>
-            </div>
-            <div class="botones">
-                <button type="button" onclick="generarVistaPrevia()">Vista/PDF</button>
-            </div>
-        </form>
+        <div class="main-container">
+            <h1>Formulario de Reserva:</h1>
+            <form id="reservaFormulario">
+                <div class="form-grupo">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="destino">Destino de Interés:</label>
+                    <input type="text" id="destino" name="destino" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="fecha">Fecha de Viaje:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+                <div class="botones">
+                    <button type="button" onclick="generarVistaPrevia()">Vista/PDF</button>
+                </div>
+            </form>
 
-        <iframe id="vistaPrevia"></iframe>
+            <iframe id="vistaPrevia"></iframe>
+
+            <div class="contacto-seccion">
+                <div class="contacto-header">
+                    <h2 style="color: black;">Buzon de Sugerencias</h2>
+                    <p style="color: black;">Gestiona diferentes viajes o dejanos tus diferetes opiniones...</p>
+                </div>
+                <div class="contacto-form-container">
+                    <form class="contacto-form">
+                        <label for="mensaje">Tu mensaje📩:</label>
+                        <textarea id="mensaje" placeholder="Escribe aquí tu idea o comentario..."></textarea>
+                        <button type="submit" class="boton-enviar">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -94,10 +107,11 @@
                 return null;
             }
 
-            const { jsPDF } = window.jspdf;
+            const {
+                jsPDF
+            } = window.jspdf;
             const doc = new jsPDF();
 
-            // Fecha actual
             const today = new Date();
             const dia = String(today.getDate()).padStart(2, '0');
             const mes = String(today.getMonth() + 1).padStart(2, '0');
@@ -111,7 +125,6 @@
             doc.text(fechaActual, 20, 50);
             doc.setFontSize(10);
 
-            // Agregar el logo si está disponible
             if (logoBase64) {
                 doc.addImage(logoBase64, 'PNG', 10, 10, 50, 30);
             } else {
@@ -153,3 +166,5 @@ Equipo Turístico - CaucaTours.`;
 </body>
 
 </html>
+
+

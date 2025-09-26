@@ -1,0 +1,97 @@
+<style>
+    /* Estilos para el contenedor de columnas con fondo blanco */
+    .column-container-wrapper {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        color: #000; /* Color del texto dentro del contenedor blanco */
+    }
+
+    .column-container-wrapper h3 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 1.5em;
+    }
+
+    .column-section {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .column-section h4 {
+        font-size: 1.2em;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .bootstrap-row .col-sm-4 {
+        padding: 15px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 10px;
+    }
+    
+    .bg-primary-custom {
+        background-color: #007bff;
+    }
+    .bg-danger-custom {
+        background-color: #dc3545;
+    }
+    .bg-success-custom {
+        background-color: #28a745;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .grid-item {
+        background-color: #007bff;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="column-container-wrapper">
+    <h3>Ejemplos de Columnas en KPAR</h3>
+    <div class="column-section" id="bootstrap-columns">
+        <h4>Ejemplo 1: Columnas con Bootstrap</h4>
+        <div class="row bootstrap-row">
+            <div class="col-sm-4 bg-primary-custom">
+                <p>Columna 1</p>
+            </div>
+            <div class="col-sm-4 bg-danger-custom">
+                <p>Columna 2</p>
+            </div>
+            <div class="col-sm-4 bg-success-custom">
+                <p>Columna 3</p>
+            </div>
+        </div>
+    </div>
+    <div class="column-section" id="css-grid-columns">
+        <h4>Ejemplo 2: Columnas con CSS Grid</h4>
+        <div class="grid-container">
+            <div class="grid-item">
+                <p>Columna A</p>
+            </div>
+            <div class="grid-item">
+                <p>Columna B</p>
+            </div>
+            <div class="grid-item">
+                <p>Columna C</p>
+            </div>
+        </div>
+    </div>
+</div>
